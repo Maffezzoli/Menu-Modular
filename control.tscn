@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://qtow3osyqfr2"]
+[gd_scene load_steps=12 format=3 uid="uid://qtow3osyqfr2"]
 
 [ext_resource type="Script" path="res://Controller.gd" id="1_3ky1x"]
 [ext_resource type="Script" path="res://control.gd" id="1_3tfgh"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://menu_options.gd" id="2_gpu2h"]
 [ext_resource type="Texture2D" uid="uid://bc7iu4aysl1gd" path="res://PNG/Default/Border/panel-border-030.png" id="2_j7djt"]
 [ext_resource type="Texture2D" uid="uid://deu18i018mkio" path="res://icon.svg" id="2_w2oy5"]
+[ext_resource type="Script" path="res://linguagem.gd" id="4_xt8vu"]
+[ext_resource type="Texture2D" uid="uid://beedx0wjlhqj" path="res://PNG/Default/Border/panel-border-027.png" id="6_fmhyk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf847"]
 bg_color = Color(0, 0, 0, 1)
@@ -38,7 +40,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rf847")
 
 [node name="MenuOptions" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -195,9 +196,10 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Volume de Musica:"
 
-[node name="Linguagem" type="Panel" parent="MenuOptions/menuNavega"]
+[node name="Linguagem" type="Panel" parent="MenuOptions/menuNavega" groups=["lingua"]]
 custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
+script = ExtResource("4_xt8vu")
 
 [node name="Label" type="Label" parent="MenuOptions/menuNavega/Linguagem"]
 layout_mode = 1
@@ -210,7 +212,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Língua:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuOptions/menuNavega/Linguagem"]
+[node name="listagem" type="HBoxContainer" parent="MenuOptions/menuNavega/Linguagem"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -224,19 +226,72 @@ offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/listagem"]
 layout_mode = 2
 texture = ExtResource("2_w2oy5")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/HBoxContainer"]
+[node name="frame" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/listagem/TextureRect"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_fmhyk")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/listagem"]
 layout_mode = 2
 texture = ExtResource("2_w2oy5")
 expand_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/HBoxContainer"]
+[node name="frame" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/listagem/TextureRect2"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_fmhyk")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/listagem"]
 layout_mode = 2
 texture = ExtResource("2_w2oy5")
+expand_mode = 2
+
+[node name="frame" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/listagem/TextureRect3"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_fmhyk")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="MenuOptions"]
@@ -252,6 +307,7 @@ theme_override_font_sizes/font_size = 40
 text = "Opcoes"
 
 [node name="MenuInicial" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
