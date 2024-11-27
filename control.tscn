@@ -1,0 +1,348 @@
+[gd_scene load_steps=10 format=3 uid="uid://qtow3osyqfr2"]
+
+[ext_resource type="Script" path="res://Controller.gd" id="1_3ky1x"]
+[ext_resource type="Script" path="res://control.gd" id="1_3tfgh"]
+[ext_resource type="Script" path="res://volume_efeitos.gd" id="1_ipfek"]
+[ext_resource type="Script" path="res://menu_options.gd" id="2_gpu2h"]
+[ext_resource type="Texture2D" uid="uid://bc7iu4aysl1gd" path="res://PNG/Default/Border/panel-border-030.png" id="2_j7djt"]
+[ext_resource type="Texture2D" uid="uid://deu18i018mkio" path="res://icon.svg" id="2_w2oy5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf847"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_6k680"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bagw3"]
+gradient = SubResource("Gradient_6k680")
+width = 10
+height = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3tfgh")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rf847")
+
+[node name="MenuOptions" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_gpu2h")
+
+[node name="menuNavega" type="VBoxContainer" parent="MenuOptions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -115.0
+offset_right = 80.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeEfeitos" type="Panel" parent="MenuOptions/menuNavega" node_paths=PackedStringArray("path_bar") groups=["volume"]]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+script = ExtResource("1_ipfek")
+path_bar = NodePath("HBoxContainer")
+tipo_volume = "Efeitos"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuOptions/menuNavega/VolumeEfeitos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -17.0
+offset_right = 54.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MenuOptions/menuNavega/VolumeEfeitos/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect2" type="TextureRect" parent="MenuOptions/menuNavega/VolumeEfeitos/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect3" type="TextureRect" parent="MenuOptions/menuNavega/VolumeEfeitos/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect4" type="TextureRect" parent="MenuOptions/menuNavega/VolumeEfeitos/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect5" type="TextureRect" parent="MenuOptions/menuNavega/VolumeEfeitos/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect6" type="TextureRect" parent="MenuOptions/menuNavega/VolumeEfeitos/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect7" type="TextureRect" parent="MenuOptions/menuNavega/VolumeEfeitos/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect8" type="TextureRect" parent="MenuOptions/menuNavega/VolumeEfeitos/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="Label" type="Label" parent="MenuOptions/menuNavega/VolumeEfeitos"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_right = 72.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Volume de Efeitos:"
+
+[node name="VolumeMusica" type="Panel" parent="MenuOptions/menuNavega" node_paths=PackedStringArray("path_bar") groups=["volume"]]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+script = ExtResource("1_ipfek")
+path_bar = NodePath("HBoxContainer")
+tipo_volume = "Musica"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuOptions/menuNavega/VolumeMusica"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -17.0
+offset_right = 54.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MenuOptions/menuNavega/VolumeMusica/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect2" type="TextureRect" parent="MenuOptions/menuNavega/VolumeMusica/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect3" type="TextureRect" parent="MenuOptions/menuNavega/VolumeMusica/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect4" type="TextureRect" parent="MenuOptions/menuNavega/VolumeMusica/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect5" type="TextureRect" parent="MenuOptions/menuNavega/VolumeMusica/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect6" type="TextureRect" parent="MenuOptions/menuNavega/VolumeMusica/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect7" type="TextureRect" parent="MenuOptions/menuNavega/VolumeMusica/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="TextureRect8" type="TextureRect" parent="MenuOptions/menuNavega/VolumeMusica/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_bagw3")
+
+[node name="Label" type="Label" parent="MenuOptions/menuNavega/VolumeMusica"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -73.0
+offset_right = 73.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Volume de Musica:"
+
+[node name="Linguagem" type="Panel" parent="MenuOptions/menuNavega"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MenuOptions/menuNavega/Linguagem"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.5
+offset_right = 28.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Língua:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuOptions/menuNavega/Linguagem"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -11.0
+offset_right = 64.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_w2oy5")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_w2oy5")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MenuOptions/menuNavega/Linguagem/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_w2oy5")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MenuOptions"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_right = 31.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Opcoes"
+
+[node name="MenuInicial" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3ky1x")
+
+[node name="menuNavega" type="VBoxContainer" parent="MenuInicial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 536.0
+offset_top = 284.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Jogar" type="Node2D" parent="MenuInicial/menuNavega"]
+
+[node name="frame" type="NinePatchRect" parent="MenuInicial/menuNavega/Jogar"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -20.0
+offset_right = 69.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j7djt")
+region_rect = Rect2(0.230984, -0.21216, 48.096, 48.2602)
+
+[node name="Button" type="Button" parent="MenuInicial/menuNavega/Jogar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -21.5
+offset_right = 35.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Jogar"
+flat = true
+
+[node name="Options" type="Node2D" parent="MenuInicial/menuNavega"]
+position = Vector2(-1, 46)
+
+[node name="frame" type="NinePatchRect" parent="MenuInicial/menuNavega/Options"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -20.0
+offset_right = 69.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j7djt")
+region_rect = Rect2(0.230984, -0.21216, 48.096, 48.2602)
+
+[node name="Button" type="Button" parent="MenuInicial/menuNavega/Options"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -21.5
+offset_right = 35.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Options"
+flat = true
+
+[connection signal="button_down" from="MenuInicial/menuNavega/Jogar/Button" to="MenuInicial" method="_on_button_button_down" binds= ["Jogar"]]
+[connection signal="mouse_entered" from="MenuInicial/menuNavega/Jogar/Button" to="MenuInicial" method="_on_button_mouse_entered" binds= ["Jogar"]]
+[connection signal="mouse_exited" from="MenuInicial/menuNavega/Jogar/Button" to="MenuInicial" method="_on_button_mouse_exited" binds= ["Jogar"]]
+[connection signal="button_down" from="MenuInicial/menuNavega/Options/Button" to="MenuInicial" method="_on_button_button_down" binds= ["Options"]]
+[connection signal="mouse_entered" from="MenuInicial/menuNavega/Options/Button" to="MenuInicial" method="_on_button_mouse_entered" binds= ["Options"]]
+[connection signal="mouse_exited" from="MenuInicial/menuNavega/Options/Button" to="MenuInicial" method="_on_button_mouse_exited" binds= ["Options"]]
